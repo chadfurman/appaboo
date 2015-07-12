@@ -1,0 +1,2 @@
+#!/bin/bash
+mv /home/lotus/code/appaboo/platforms/android/build/outputs/apk/android-debug.apk ./
