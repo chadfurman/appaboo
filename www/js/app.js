@@ -1,4 +1,4 @@
-var URL = 'http://google.com/';
+var URL = 'http://helix.wtfayla.net/pAybOImIp.php';
 
 angular.module('Appaboo', ['ionic'])
 
@@ -29,6 +29,7 @@ angular.module('Appaboo', ['ionic'])
 			if (alias) {
 				$http.get(URL + '?alias=' + alias).
 					success(function (data, status, headers, config) {
+						console.log('Success', data, status, headers, config);
 						$ionicPopup.alert({
 								title: 'Success!', // String. The title of the popup.
 								cssClass: 'alias-submit-success', // String, The custom CSS class name
@@ -37,21 +38,18 @@ angular.module('Appaboo', ['ionic'])
 								//templateUrl: '', // String (optional). The URL of an html template to place in the popup   body.
 								okText: 'OK', // String (default: 'OK'). The text of the OK button.
 								okType: 'button-positive' // String (default: 'button-positive'). The type of the OK button.
-							}).then(function() {
-								navigator.app.exitApp();
 							});
 					}).
 					error(function (data, status, headers, config) {
+						console.log('Error', data, status, headers, config);
 						$ionicPopup.alert({
 							title: 'Fail!', // String. The title of the popup.
 							cssClass: 'alias-submit-error', // String, The custom CSS class name
-							//subTitle: '', // String (optional). The sub-title of the popup.
+							subTitle: 'Error: ' + data, // String (optional). The sub-title of the popup.
 							//template: '', // String (optional). The html template to place in the popup body.
 							//templateUrl: '', // String (optional). The URL of an html template to place in the popup   body.
 							okText: 'OK', // String (default: 'OK'). The text of the OK button.
 							okType: 'button-negative' // String (default: 'button-positive'). The type of the OK button.
-						}).then(function() {
-							navigator.app.exitApp();
 						});
 					});
 			} else {
